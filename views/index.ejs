@@ -1,0 +1,27 @@
+<%- include("header") -%>
+    <div class="box">
+        <h1>
+            <%=weekDay%>
+        </h1>
+    </div>
+    <div class="box2">
+        <!-- <input type="checkbox" id="vehicle1" name="num" value="Bike">
+            <p class="iteem">Drink</p> -->
+        <%for(let i=0; i<listItem.length; i++){%>
+            <form action="/delete" method="post">
+                <div class="box3">
+                    <input type="checkbox", onChange="this.form.submit()", name="check", value="<%=listItem[i].id%>">
+                    <p class="iteem">
+                        <%=listItem[i].name%>
+                    </p>
+                    <br>
+                </div>
+                <input type="hidden" name="hiddenValue", value="<%=weekDay%>">
+            </form>
+            <%}%>
+                <form action="/" method="post">
+                    <input type="text" name="input" id="" placeholder="">
+                    <button type="submit" name="btn", value="<%=weekDay%>">+</button>
+                </form>
+    </div>
+    <%- include("footer") -%>
