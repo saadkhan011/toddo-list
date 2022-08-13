@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const bodyparser = require("body-parser");
 const ejs = require("ejs");
@@ -14,7 +15,7 @@ app.set('view engine', 'ejs');
 // for css folder we make public folder and add that folder here 
 app.use(express.static('public'))
 
-mongoose.connect('mongodb+srv://saadd:Saad2113@cluster0.ee2rk.mongodb.net/todoList')
+mongoose.connect(process.env.MONGO_URI)
 // mongoose.connect('mongodb://localhost:27017/todoList')
 const dbschema = new mongoose.Schema({
     name: String
